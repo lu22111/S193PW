@@ -1,11 +1,12 @@
 @extends('layouts.plantillas')
-@section('titulo','componentes Blade')
+
+@section('titulo', 'Componentes Blade')
 
 @section('contenido')
-<x-Card> encabezado="componente" "titulo=Dinamico" textoBoton="Guardar"</x-Card>
+<x-card encabezado="componente" titulo="Dinamico" textoBoton="Guardar">
+</x-card>
 soy el contenido del primero
-<x-Card>encabezado="componente2" "titulo=Dinamico 2"textoBoton="No Guardar" </x-Card>
+<x-card encabezado="componente2" titulo="Dinamico 2" textoBoton="No Guardar">
+</x-card>
 otro gato
-<x-Card> </x-Card>
-
 @endsection

@@ -8,10 +8,9 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-public $encabezado;
-public $titulo;
-public $textoBoton;
-
+    public $encabezado;  
+    public $titulo;  
+    public $textoBoton;  
     /**
      * Create a new component instance.
      */

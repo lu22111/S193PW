@@ -6,7 +6,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/fondo.css') }}"> 
     @vite(['resources/js/app.js'])
-    <title>Plantilla</title>
+    <title>@yield('titulo')</title>
 </head>
 <body>
     <!--Inicia Navbar-->
@@ -31,4 +31,4 @@
     <!--Termina Navbar-->
         @yield('contenido')
 </body>
-</html>S
+</html>

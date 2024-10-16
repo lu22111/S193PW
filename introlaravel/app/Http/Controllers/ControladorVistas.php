@@ -6,20 +6,27 @@ use Illuminate\Http\Request;
 
 class ControladorVistas extends Controller
 {
-    // usamos  este controlador para administrar la logica de las vistas 
+    // Usamos este controlador para administrar la lógica de las vistas
     public function home()
     {
-    return view('inicio');
+        return view('inicio');
     }
 
     public function formulario()
     {
         return view('formulario');
     }
+
     public function consulta()
     {
         return view('clientes');
     }
 
+    public function procesadorCliente(Request $peticion)
+    {
+        //return ':)Si llegó la info del cliente :)';//
+        //return $peticion ->all();//
+        return $peticion ->ip();
 
+    }
 }

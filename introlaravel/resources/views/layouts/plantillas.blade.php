@@ -10,25 +10,25 @@
 </head>
 <body>
     <!--Inicia Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a href=" {{ route('rutainicio') }}" class="navbar-brand">Turista sin Hops</a>
+            <a href="{{ route('rutainicio') }}" class="navbar-brand">Turista sin Hops</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="{{ route('rutaForm') }}" class="nav-link" aria-current="page" href="#">Registro Clientes</a>
+                        <a href="{{ route('rutaForm') }}" class="nav-link {{ request()->routeIs('rutaForm') ? 'text-warning' : '' }}" aria-current="page">Registro Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('rutaclientes') }}" class="nav-link" >Consulta Clientes</a>
+                        <a href="{{ route('rutaclientes') }}" class="nav-link">Consulta Clientes</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!--Termina Navbar-->
-        @yield('contenido')
+    @yield('contenido')
 </body>
 </html>

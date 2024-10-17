@@ -23,8 +23,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('rutaclientes') }}" class="nav-link">Consulta Clientes</a>
-                    </li>
-                </ul>
+                    </li>                </ul>
             </div>
         </div>
     </nav>

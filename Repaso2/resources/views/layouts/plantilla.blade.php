@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @vite(['resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,5 +24,14 @@
   </div>
 </nav>
     @yield('contenido')
+    <footer class="bg-dark text-white text-center text-lg-start mt-auto">
+      <div class="text-center p-3">
+          <div class="container">
+              <span>&copy; {{ date('Y') }} Sacra Scriptura. Todos los derechos reservados.</span>
+              <br>
+              <small>{{ date('d') }} de {{ date('F') }} del {{ date('Y') }}</small>
+          </div>
+      </div>
+  </footer>
 </body>
 </html>

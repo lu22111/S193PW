@@ -17,47 +17,46 @@
     @endif
 
     <div class="container-fluid d-flex justify-content-center align-items-center">
-        <form action="/Guardarlibro" method="POST" class="w-50">
+        <form action="/Guardarlibro" method="POST" class="w-50 p-4 bg-light rounded shadow">
             @csrf
-            <div class="mb-3 text-center">
-                <label class="form-label text-center">ISBN</label>
-                <input type="number" class="form-control" name="Isbn" value="{{ old('Isbn') }}" >
+            <h2 class="text-center mb-4">Agregar Libro</h2>
+
+            <div class="mb-3">
+                <label class="form-label">ISBN</label>
+                <input type="number" class="form-control" name="Isbn" value="{{ old('Isbn') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Isbn')}}</small>
-                
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Título</label>
-                <input type="text" class="form-control" name="Titulo" value="{{ old('Titulo') }}" >
+                <input type="text" class="form-control" name="Titulo" value="{{ old('Titulo') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Titulos')}}</small>
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Autor</label>
-                <input type="text" class="form-control" name="Autor" value="{{ old('Autor') }}" >
+                <input type="text" class="form-control" name="Autor" value="{{ old('Autor') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Autor')}}</small>
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Páginas</label>
-                <input type="number" class="form-control" name="Paginas" value="{{ old('Paginas') }}" >
+                <input type="number" class="form-control" name="Paginas" value="{{ old('Paginas') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Paginas')}}</small>
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Año</label>
-                <input type="number" class="form-control" name="Año" value="{{ old('Año') }}" >
+                <input type="number" class="form-control" name="Año" value="{{ old('Año') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Año')}}</small>
-
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Editorial</label>
-                <input type="text" class="form-control" name="Editorial" value="{{ old('Editorial') }}" >
+                <input type="text" class="form-control" name="Editorial" value="{{ old('Editorial') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Editorial')}}</small>
-
             </div>
-            <div class="mb-3 text-center">
+            <div class="mb-3">
                 <label class="form-label">Correo de la Editorial</label>
-                <input type="email" class="form-control" name="Correo" value="{{ old('Correo') }}" >
+                <input type="email" class="form-control" name="Correo" value="{{ old('Correo') }}">
                 <small class="text-danger fst-italic">{{$errors->first('Correo')}}</small>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Libro</button>
+            <button type="submit" class="btn btn-primary w-100">Guardar Libro</button>
         </form>
     </div>
 @endsection

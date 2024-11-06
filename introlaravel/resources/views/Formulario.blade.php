@@ -12,7 +12,7 @@
     @session('exito')
     <script>
     Swal.fire({
-  title:'Respuesta servidor!',
+  title:'Respuesta !',
   text: '{{$value}}',
   icon: 'success',
   confirmButtonText: 'Cool'

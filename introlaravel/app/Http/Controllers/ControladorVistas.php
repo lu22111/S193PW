@@ -25,14 +25,13 @@ class ControladorVistas extends Controller
     public function procesadorCliente(ValidorCliente $peticion)
     {
         $validacion = $peticion->validate([
-            'txtnombre' => 'required|min:4|max:20',
-            'txtapellido' => 'required',
-            'txtcorreo' => 'required',
-            'txttelefono' => 'required|numeric',
+            'prenda' => 'required|min:4|max:20',
+            'color' => 'required',
+            'cantidad' => 'required|numeric',
         ]);
 
         $usuarios = $peticion->input('txtnombre');
-        session()->flash('exito', 'Se guardó el usuario: ' . $usuarios);
+        session()->flash('exito', 'Se guardó la preda: ' . $usuarios);
         return to_route('rutaForm');
 
         // //return ':)Si llegó la info del cliente :)';//

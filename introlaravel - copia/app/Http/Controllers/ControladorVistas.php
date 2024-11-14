@@ -14,12 +14,12 @@ class ControladorVistas extends Controller
 
     public function formulario()
     {
-        
+        return view('formulario');
     }
 
     public function consulta()
     {
-        return view('prendas');
+        return view('clientes');
     }
 
     public function procesadorCliente(ValidorCliente $peticion)

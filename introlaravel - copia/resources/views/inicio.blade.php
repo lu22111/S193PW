@@ -1,4 +1,4 @@
-<title>Registro  de prendas</title>
+<title>Inicio</title>
 @vite(['resources/js/app.js'])
 
 <style>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="d-flex flex-column justify-content-center align-items-center text-center full-height">
-    <h1 class="display-1">registro prendas!</h1>
+    <h1 class="display-1">Bienvenido Turista!</h1>
     <p>Presiona el botón para iniciar...</p>
     <a href="/form"  class="btn btn-primary">Ir al Registro</a>
     <a href="{{ route('rutaForm') }}" class="btn btn-danger">Ir al Registro</a>

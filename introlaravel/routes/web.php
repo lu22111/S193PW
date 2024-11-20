@@ -31,3 +31,7 @@ Route::post('/enviarCliente',[ControladorVistas::class,'procesadorCliente'])->na
 
 Route::view('/consultar', 'clientes')->name('rutaclientes');
 Route::get('/cliente/create',[clienteController::class,'create'])->name('rutaForm');
+Route::resource('clientes', clienteController::class);
+
+
+Route::get('/cliente/{id}/edit', [clienteController::class, 'edit'])->name('rutaEdit');

@@ -13,7 +13,9 @@ class clienteController extends Controller
      */
     public function index()
     {
-        //
+    
+    $clientes = DB::table('clientes')->get();
+    return view('clientes.index', compact('clientes'));
     }
 
     /**
@@ -21,6 +23,7 @@ class clienteController extends Controller
      */
     public function create()
     {
+        
         return view('formulario');
     }
 
@@ -52,7 +55,9 @@ class clienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cliente = DB::table('clientes')->find($id);
+       return view('clientes.edit', compact('cliente'));
+
     }
 
     /**
@@ -60,7 +65,24 @@ class clienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'txtnombre' => 'required|string|max:255',
+            'txtapellido' => 'required|string|max:255',
+            'txtcorreo' => 'required|email|unique:clientes,correo,' . $id,
+            'txttelefono' => 'required|string|max:15',
+
+        ]);
+        $cliente = Cliente::findOrFail($id);  // Encuentra el cliente por ID
+        $cliente->update([
+            'nombre' => $request->input('txtnombre'),
+            'apellido' => $request->input('txtapellido'),
+            'correo' => $request->input('txtcorreo'),
+            'telefono' => $request->input('txttelefono'),
+        ]);
+    
+        return redirect()->route('clientes.index')
+        ->with('success', 'Cliente actualizado correctamente.');
+
     }
 
     /**
@@ -68,6 +90,14 @@ class clienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
+        
+    DB::table('clientes')->where('id', $id)->delete();
+
+  
+    return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
 }
+
+}
+
+    
+

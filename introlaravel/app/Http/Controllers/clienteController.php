@@ -5,99 +5,95 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Cliente;
+
 
 class clienteController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar una lista de clientes.
      */
     public function index()
     {
-    
-    $clientes = DB::table('clientes')->get();
-    return view('clientes.index', compact('clientes'));
+        $clientes = DB::table('clientes')->get();
+        return view('clientes', compact('clientes'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostrar el formulario para crear un nuevo cliente.
      */
     public function create()
     {
-        
-        return view('formulario');
+        return view('Formulario');
     }
 
     /**
-     * aqui me aviento el insert
+     * Almacenar un nuevo cliente en la base de datos.
      */
     public function store(Request $request)
     {
-        DB::tabla('clientes')->insert([
-            "nombre"=>$request->input('txtnombre'),
-            "apellido"=>$request->input('txtapellido'),
-            "correo"=>$request->input('txtcorreo'),
-            "telefono"=>$request->input('txttelefono-'),
-            "create_at"=> Carbon::now(),
-            "updated_at"=> Carbon::now(),
+        $request->validate([
+            'txtnombre' => 'required|string|max:255',
+            'txtapellido' => 'required|string|max:255',
+            'txtcorreo' => 'required|email|unique:clientes,correo',
+            'txttelefono' => 'required|string|max:15',
         ]);
+
+        DB::table('clientes')->insert([
+            'nombre' => $request->input('txtnombre'),
+            'apellido' => $request->input('txtapellido'),
+            'correo' => $request->input('txtcorreo'),
+            'telefono' => $request->input('txttelefono'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('rutaForm')->with('success', 'Cliente creado exitosamente.');
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Mostrar el formulario para editar un cliente existente.
      */
     public function edit(string $id)
     {
-        $cliente = DB::table('clientes')->find($id);
-       return view('clientes.edit', compact('cliente'));
-
+        $clientes =DB::select('select *from clientes where id ='.$id.'');
+        return view('edit', compact('clientes'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualizar un cliente existente en la base de datos.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'txtnombre' => 'required|string|max:255',
             'txtapellido' => 'required|string|max:255',
             'txtcorreo' => 'required|email|unique:clientes,correo,' . $id,
             'txttelefono' => 'required|string|max:15',
-
         ]);
-        $cliente = Cliente::findOrFail($id);  // Encuentra el cliente por ID
-        $cliente->update([
+
+        DB::table('clientes')->where('id', $id)->update([
             'nombre' => $request->input('txtnombre'),
             'apellido' => $request->input('txtapellido'),
             'correo' => $request->input('txtcorreo'),
             'telefono' => $request->input('txttelefono'),
+            'updated_at' => Carbon::now(),
         ]);
-    
-        return redirect()->route('clientes.index')
-        ->with('success', 'Cliente actualizado correctamente.');
 
+        return redirect()->route('rutaCliente')->with('success', 'Cliente actualizado correctamente.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar un cliente existente de la base de datos.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        
-    DB::table('clientes')->where('id', $id)->delete();
-
-  
-    return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
-}
-
-}
-
+        $cliente = Cliente::findOrFail($id);
     
-
+        // Realiza la eliminación
+        $cliente->delete();
+    
+        // Redirige con mensaje de éxito
+        return redirect()->route('rutaCliente')->with('success', 'Cliente eliminado correctamente.');
+    }
+}    

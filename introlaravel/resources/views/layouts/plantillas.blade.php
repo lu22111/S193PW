@@ -23,7 +23,7 @@
                         <a href="{{ route('rutaForm') }}" class="nav-link {{ request()->routeIs('rutaForm') ? 'text-warning' : '' }}" aria-current="page">{{__('Registro Clientes')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('rutaclientes') }}" class="nav-link">{{__('Turista sin Maps') }}</a>
+                        <a href="{{ route('rutaCliente') }}" class="nav-link">{{__('Turista sin Maps') }}</a>
                     </li>                </ul>
             </div>
         </div>

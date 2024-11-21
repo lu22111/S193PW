@@ -15,34 +15,24 @@ class ControladorVistas extends Controller
 
     public function formulario()
     {
-        
+        // Assuming you want to show a form for the client
+        return view('formulario'); // Ensure you have a 'formulario.blade.php' view
     }
 
     public function consulta()
     {
-        return view('prendas');
+        return view('Cliente');
     }
 
     public function procesadorCliente(ValidorCliente $peticion)
     {
-        $validacion = $peticion->validate([
-            'prenda' => 'required|min:4|max:20',
-            'color' => 'required',
-            'cantidad' => 'required|numeric',
-        ]);
-
+        // No need for manual validation since 'ValidorCliente' already handles it
         $usuarios = $peticion->input('txtnombre');
-        session()->flash('exito', 'Se guardó la preda: ' . $usuarios);
-        return to_route('rutaForm');
 
-        // //return ':)Si llegó la info del cliente :)';//
-        // //return $peticion ->all();//
-        // return $peticion ->ip();
-        //return redirect('/');//
+        // Flash success message
+        session()->flash('exito', 'Se guardó la información correctamente: ' . $usuarios);
 
-        //return redirect()->route('rutaclientes');//
-        //return back();//
-        //$id=[['usuario'=>1],['usuario'=>2]];
-        // return view('formulario', compact('id'));
+        // Redirect to a named route
+        return redirect()->route('rutaForm'); // Make sure 'rutaForm' is a valid named route in your 'web.php'
     }
 }

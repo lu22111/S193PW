@@ -3,13 +3,13 @@
 {{--@dump($id)--}}
 <!-- Inicia Tarjeta con formulario -->
 <div class="container mt-5 col-md-6">
-    @if(session('exito'))
-    <x-Alert tipo="success">{{session('exito')}}</x-Alert>
+    @if(session('success'))
+    <x-Alert tipo="success">{{session('success')}}</x-Alert>
     @endif
-    @session('exito')
+    @session('success')
     <x-Alert tipo="warning">{{$value}}</x-Alert>
     @endsession
-    @session('exito')
+    @session('success')
     <script>
     Swal.fire({
   title:'Respuesta !',
@@ -24,8 +24,10 @@
         </div>
         <div class="card-body text-justify">
 
-            <form action ="\enviarCliente" method="POST">
+            <form action ="{{route('rutaEnviar')}}" method="POST">
+                
                 @csrf
+                
 
 
                 <div class="mb-3">
@@ -50,6 +52,7 @@
                 </div>
                 <div class="d-grid gap-2 mt-2 mb-1">
                     <button type="submit" class="btn btn-success btn-sm"> {{__('Guardar Cliente') }}</button>
+                   
                 </div>
             </form>
         </div>

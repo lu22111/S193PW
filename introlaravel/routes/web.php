@@ -51,3 +51,6 @@ Route::post('/clientes/eliminacion/{id}', [clienteController::class, 'destroy'])
 
 
 Route::get('/cliente/{id}/edit', [clienteController::class, 'edit'])->name('rutaEdit');
+
+
+Route::get('/resultados', [BusquedaController::class, 'mostrarResultados'])->name('RutaResultados');

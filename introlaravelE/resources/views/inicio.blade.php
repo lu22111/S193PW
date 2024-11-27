@@ -16,7 +16,7 @@
     <h1 class="display-1">Bienvenido Turista!</h1>
     <p>Presiona el botón para iniciar...</p>
     <a href="/form"  class="btn btn-primary">Ir al Registro</a>
-    <a href="{{ route('rutaForm') }}" class="btn btn-danger">Ir al Registro</a>
+    <a href="{{ route('cliente.create') }}" class="btn btn-danger">Ir al Registro</a>
    
 </div>
 </body>

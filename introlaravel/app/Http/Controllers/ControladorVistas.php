@@ -35,4 +35,24 @@ class ControladorVistas extends Controller
         // Redirect to a named route
         return redirect()->route('rutaForm'); // Make sure 'rutaForm' is a valid named route in your 'web.php'
     }
+
+    public function mostrarResultados(Request $request)
+    {
+        // Simulación de los datos: obtén esto desde tu base de datos
+        $usuario = (object) [
+            'nombre' => 'Ana García',
+            'edad' => 22,
+            'preferencias' => 'Silencio por la noche, no mascotas, persona ordenada.',
+            'hobbies' => 'Leer, yoga, cocinar',
+            'email' => 'ana.garcia@example.com',
+        ];
+
+        $departamento = (object) [
+            'direccion' => 'Av. Universidad 123, Querétaro',
+            'precio' => 5500.00,
+            'caracteristicas' => '2 recámaras, baño privado, cocina equipada.',
+        ];
+
+        return view('resultados', compact('usuario', 'departamento'));
+    }
 }

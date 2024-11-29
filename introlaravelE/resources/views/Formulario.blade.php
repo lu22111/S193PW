@@ -16,7 +16,8 @@
   text: '{{$value}}',
   icon: 'success',
   confirmButtonText: 'Cool'
-})</script>
+     })
+</script>
     @endsession
     <div class="card font-monospace">
         <div class="card-header fs-5 text-center text-primary">

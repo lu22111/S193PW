@@ -23,3 +23,5 @@ Route::get('/',[ClienteController::class,'home'])->name('rutainicio');
 Route::resource('cliente',ClienteController::class);
 
 
+
+

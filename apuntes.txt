@@ -1,0 +1,7 @@
+php artisan make:migrate create_cuentas_table -- crear tabla de migracion
+php artisan make:sedder cuentasSedder -- datos seeders
+php artisan make:request validador -- validaciones
+php artisan make:comtroller controladorVistas -- controlador
+php artisan make:model cuentas -mcr --crea modelo, controlador y tabla
+php artisan migrate -- corre las migraciones
+php artisan migrate:fresh -- borra las tablas y las crea de nuevo

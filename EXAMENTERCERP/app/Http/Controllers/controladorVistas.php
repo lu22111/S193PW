@@ -56,4 +56,11 @@ class controladorVistas extends Controller
         return view('Registro');
     
     }
+    
+    public function consulta(){
+        
+        $consulta = DB::select('select * from prendas');
+        return view('consulta',compact('consulta'));
+    
+    }
 }

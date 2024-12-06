@@ -73,5 +73,6 @@
         </div>
         <button type="submit">Guardar</button>
     </form>
+    <a href="/consulta">consultas</a>
         </body>
 </html>
